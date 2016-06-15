@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+    <link href="@Url.Content("~/Content/bootstrap.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.1.408/styles/kendo.common-bootstrap.min.css" />
+    <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.1.408/styles/kendo.bootstrap.min.css" />
+    <link href="@Url.Content("~/Content/kendo/2016.2.607/kendo.mobile.all.min.css")" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.1.408/styles/kendo.dataviz.bootstrap.min.css" />
+    <link href="@Url.Content("~/Content/kendo/2016.2.607/kendo.default.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/kendo/2016.2.607/kendo.dataviz.default.min.css")" rel="stylesheet" type="text/css" />
+
+
+    
+
+    @* ========================================================================================= *@
+    <link href="~/Content/template2/font-awesome.min.css" rel="stylesheet">
+    <link href="~/Content/template2/animate.min.css" rel="stylesheet">
+    <link href="~/Content/template2/owl.carousel.css" rel="stylesheet">
+    <link href="~/Content/template2/owl.transitions.css" rel="stylesheet">
+    <link href="~/Content/template2/prettyPhoto.css" rel="stylesheet">
+    <link href="~/Content/template2/main.css" rel="stylesheet">
+    <link href="~/Content/template2/responsive.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <link rel="shortcut icon" href="~/Images/template2/ico/favicon.ico">
+ 
+
+
+</head>
+
+<body id="home" class="homepage">
+
+        <header id="header">
+            <nav id="main-menu" class="navbar navbar-default navbar-fixed-top" role="banner">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="index.html"><img src="~/Images/template2/logo.png" alt="logo"></a>
+                    </div>
+
+                    <div class="collapse navbar-collapse navbar-right">
+                        <ul class="nav navbar-nav">
+                            <li class="scroll active"><a href="#home">Home</a></li>
+                            <li class="scroll"><a href="#features">Models</a></li>
+                            <li class="scroll"><a href="#services">Easy Payments</a></li>
+                            <li class="scroll"><a href="#get-in-touch">Contact</a></li>
+                            @*<li class="scroll"><a href=""><span class="login-btn">Login</span></a></li>*@
+                        </ul>
+                    </div>
+                </div><!--/.container-->
+            </nav><!--/nav-->
+        </header>
+        <div>
+            @RenderBody()
+        </div>
+    <footer id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    &copy; 2014 Your Company. Designed by <a target="_blank" href="http://shapebootstrap.net/" title="Free Twitter Bootstrap WordPress Themes and HTML templates">ShapeBootstrap</a>
+                </div>
+                <div class="col-sm-6">
+                    <ul class="social-icons">
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                        <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                        <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                        <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                        <li><a href="#"><i class="fa fa-flickr"></i></a></li>
+                        <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="#"><i class="fa fa-github"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="@Url.Content("~/Scripts/kendo/2016.2.607/jquery.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/kendo/2016.2.607/angular.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/kendo/2016.2.607/jszip.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/kendo/2016.2.607/kendo.all.min.js")"></script>
+
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+    <script src="~/Scripts/template2/owl.carousel.min.js"></script>
+    <script src="~/Scripts/template2/mousescroll.js"></script>
+    <script src="~/Scripts/template2/smoothscroll.js"></script>
+    <script src="~/Scripts/template2/jquery.prettyPhoto.js"></script>
+    <script src="~/Scripts/template2/jquery.isotope.min.js"></script>
+    <script src="~/Scripts/template2/jquery.inview.min.js"></script>
+    <script src="~/Scripts/template2/wow.min.js"></script>
+    <script src="~/Scripts/template2/main.js"></script>
+
+    </body>
+</html>
