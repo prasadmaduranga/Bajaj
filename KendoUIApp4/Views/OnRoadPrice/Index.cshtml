@@ -1,0 +1,204 @@
+﻿
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPage2.cshtml";
+}
+
+<link href="~/Content/temlate3/jquery-ui.css" rel="stylesheet" />
+<link href="~/Content/temlate3/style.css" rel="stylesheet" />
+<link href="~/Content/temlate3/form.css" rel="stylesheet" type="text/css" media="all" />
+<link href="~/Content/custom.css" rel="stylesheet" />
+
+
+<div class="single-sec">
+    <div class="container">
+        <div class="single-bottom1">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#Overview" data-toggle="tab">Get Instant Quote</a></li>
+                <li><a href="#Specification" data-toggle="tab">Summary</a></li>
+            </ul>
+            <div id="myTabContent" class="tab-content" style="border:0px">
+                <div class="tab-pane fade active in" id="Overview">
+
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                        @*//kendo drop down should appear here*@
+                        <div class="dropdown">
+                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                --Select Byke--
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                <li><a href="#">Pulasar 135</a></li>
+                                <li><a href="#">Pulasar 180</a></li>
+                                <li><a href="#">Pulasar 150</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">Discovery 180</a></li>
+                                <li><a href="#">Discovery 150</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                        @*//kendo drop down should appear here*@
+                        <div class="dropdown">
+                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                --Select Insuarance company--
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                <li><a href="#">Co-OP</a></li>
+                                <li><a href="#">Ceylinco</a></li>
+                                <li><a href="#">The Finance</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">Third party</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                    <div class="single_item_img col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                        <img src="~/Images/template3/bajaj-discover-125-drum-838.png" style="max-width:100%;max-height:100%;" />
+
+                    </div>
+                    <div class="single_item_description col-xs-12 col-sm-6 col-md-7 col-md-offset-1 col-lg-7">
+                        <h3 style="opacity:.6">Discover 125cc </h3>
+                        <h5>100 cc | 82 kmph | 10.9bhp</h5>
+                        <div class="item-list">
+                            <table style="width:100%;">
+                                <tr>
+                                    <td>Bike Price</td>
+                                    <td class="right_align">Rs.125,000</td>
+                                </tr>
+                                <tr>
+                                    <td>Insuarance</td>
+                                    <td class="right_align">Rs.11,000</td>
+                                </tr>
+                                <tr>
+                                    <td>Registration Fee</td>
+                                    <td class="right_align">Rs.6,000</td>
+                                </tr>
+                                <tr>
+                                    <td>License Fee</td>
+                                    <td class="right_align">Rs.590</td>
+                                </tr>
+                            </table>
+                            <hr />
+                            <table style="width:100%;">
+                                <tr>
+                                    <td><span class="highlight ">Total</span></td>
+                                    <td><span class="highlight right_align">Rs.145,000</span></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="cost">
+                            <div class="prdt-cost">
+                                <ul>
+                                    <a href="#">Easy Payements</a>
+                                </ul>
+                            </div>
+
+                            <div class="clearfix"></div>
+                        </div>
+
+                    </div>
+       
+                </div>
+                <div class="tab-pane fade" id="Specification">
+                    <div class="tabstrip">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8">
+                            kendo grid should appear here
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="recommendation">
+            <div>
+                <div>
+                    <h3>Popular Models</h3>
+                </div>
+                <div class="bikes-grids">
+                    <ul id="flexiselDemo1">
+                        <li>
+                            <a href="products.html"><img src="~/Images/template3/ts1.jpg" alt="" /></a>
+                            <h4><a href="products.html">King Size Bed</a></h4>
+                            <p>ID: KS3989</p>
+                        </li>
+                        <li>
+                            <a href="products.html"><img src="~/Images/template3/r2.jpg" alt="" /></a>
+                            <h4><a href="products.html">Elite Diwan Seater</a></h4>
+                            <p>ID: KS3989</p>
+                        </li>
+                        <li>
+                            <a href="products.html"><img src="~/Images/template3/r3.jpg" alt="" /></a>
+                            <h4><a href="products.html">Dior Corner Sofa</a></h4>
+                            <p>ID: KS3989</p>
+                        </li>
+                        <li>
+                            <a href="products.html"><img src="~/Images/template3/r4.jpg" alt="" /></a>
+                            <h4><a href="products.html">Alia Modular Sofa</a></h4>
+                            <p>ID: KS3989</p>
+                        </li>
+                        <li>
+                            <a href="products.html"><img src="~/Images/template3/r5.jpg" alt="" /></a>
+                            <h4><a href="products.html">King Size Bed</a></h4>
+                            <p>ID: KS3989</p>
+                        </li>
+                    </ul>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="@Url.Content("~/Scripts/kendo/2016.2.607/jquery.min.js")"></script>
+<script src="@Url.Content("~/Scripts/kendo/2016.2.607/jszip.min.js")"></script>
+<script src="@Url.Content("~/Scripts/kendo/2016.2.607/kendo.all.min.js")"></script>
+
+
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/template3/menu_jquery.js"></script>
+<script src="~/Scripts/template3/simpleCart.min.js"> </script>
+<script src="~/Scripts/template3/jquery.etalage.min.js"></script>
+<script src="~/Scripts/template3/jquery.flexisel.js"></script>
+<script src="~/Scripts/template3/jquery.jscrollpane.min.js"></script>
+
+<script>
+
+    jQuery(document).ready(function ($) {
+        $("#flexiselDemo1").flexisel({
+            visibleItems: 5,
+            animationSpeed: 3000,
+            autoPlay: true,
+            autoPlaySpeed: 3000,
+            pauseOnHover: true,
+            enableResponsiveBreakpoints: true,
+            responsiveBreakpoints: {
+                portrait: {
+                    changePoint: 480,
+                    visibleItems: 1
+                },
+                landscape: {
+                    changePoint: 640,
+                    visibleItems: 2
+                },
+                tablet: {
+                    changePoint: 768,
+                    visibleItems: 3
+                }
+            }
+        });
+
+
+    });
+</script>
+
+
+

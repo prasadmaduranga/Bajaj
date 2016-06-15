@@ -109,8 +109,10 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\EasyPaymentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ModelController.cs" />
+    <Compile Include="Controllers\OnRoadPriceController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -121,6 +123,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\custom.css" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\kendo\2016.2.607\Black\editor.png" />
@@ -459,6 +462,7 @@
     <Content Include="Content\kendo\2016.2.607\Uniform\sprite_kpi_2x.png" />
     <Content Include="Content\temlate3\etalage.css" />
     <Content Include="Content\temlate3\form.css" />
+    <Content Include="Content\temlate3\jquery-ui.css" />
     <Content Include="Content\temlate3\style.css" />
     <Content Include="Content\template1\etalage.css" />
     <Content Include="Content\template1\nav.css" />
@@ -545,8 +549,15 @@
     <Content Include="Images\template2\main-feature.png" />
     <Content Include="Images\template2\slider\bg1.jpg" />
     <Content Include="Images\template2\slider\bg2.jpg" />
+    <Content Include="Images\template3\bajaj-discover-125-drum-838.png" />
     <Content Include="Images\template3\discovery.png" />
+    <Content Include="Images\template3\left.png" />
     <Content Include="Images\template3\pulsar.png" />
+    <Content Include="Images\template3\r2.jpg" />
+    <Content Include="Images\template3\r3.jpg" />
+    <Content Include="Images\template3\r4.jpg" />
+    <Content Include="Images\template3\r5.jpg" />
+    <Content Include="Images\template3\right.png" />
     <Content Include="Images\template3\ss1.jpg" />
     <Content Include="Images\template3\ss2.jpg" />
     <Content Include="Images\template3\ss33.jpg" />
@@ -835,6 +846,8 @@
     <Content Include="Scripts\template2\smoothscroll.js" />
     <Content Include="Scripts\template2\wow.min.js" />
     <Content Include="Scripts\template3\jquery.etalage.min.js" />
+    <Content Include="Scripts\template3\jquery.flexisel.js" />
+    <Content Include="Scripts\template3\jquery.jscrollpane.min.js" />
     <Content Include="Scripts\template3\menu_jquery.js" />
     <Content Include="Scripts\template3\simpleCart.min.js" />
     <Content Include="Scripts\_references.js" />
@@ -977,6 +990,8 @@
     <Content Include="Views\Home\index2.cshtml" />
     <Content Include="Views\Model\Index.cshtml" />
     <Content Include="Views\Model\SingleItem.cshtml" />
+    <Content Include="Views\EasyPayment\Index.cshtml" />
+    <Content Include="Views\OnRoadPrice\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />

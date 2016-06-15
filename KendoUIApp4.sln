@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KendoUIApp4", "KendoUIApp4\KendoUIApp4.csproj", "{C65A9512-47C1-40F6-8AB3-16FF9AC6E36B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KendoUIApp4Tests", "KendoUIApp4Tests\KendoUIApp4Tests.csproj", "{38901713-8350-4C50-87C6-5AFC3C8A812E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BajajProj", "BajajProj\BajajProj.csproj", "{939336B4-AC7B-4C0D-B2B6-41A43BCEB4F6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{C65A9512-47C1-40F6-8AB3-16FF9AC6E36B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C65A9512-47C1-40F6-8AB3-16FF9AC6E36B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C65A9512-47C1-40F6-8AB3-16FF9AC6E36B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{38901713-8350-4C50-87C6-5AFC3C8A812E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{38901713-8350-4C50-87C6-5AFC3C8A812E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{38901713-8350-4C50-87C6-5AFC3C8A812E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{38901713-8350-4C50-87C6-5AFC3C8A812E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{939336B4-AC7B-4C0D-B2B6-41A43BCEB4F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{939336B4-AC7B-4C0D-B2B6-41A43BCEB4F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{939336B4-AC7B-4C0D-B2B6-41A43BCEB4F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{939336B4-AC7B-4C0D-B2B6-41A43BCEB4F6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f8a95cd754c24b90af3e3f4f0095afd0" Name="Diagram1">
+        <EntityTypeShape EntityType="BajajEntityDataModel.Byke" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BajajEntityDataModel.BykeImage" Width="1.5" PointX="5.25" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BajajEntityDataModel.Category" Width="1.5" PointX="0.75" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BajajEntityDataModel.Finance_Insuarance" Width="1.5" PointX="5.25" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BajajEntityDataModel.FinanceCompany" Width="1.5" PointX="3" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BajajEntityDataModel.InsuaranceCompany" Width="1.5" PointX="0.75" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="BajajEntityDataModel.User" Width="1.5" PointX="7.75" PointY="3.5" IsExpanded="true" />
+        <AssociationConnector Association="BajajEntityDataModel.FK__Byke__CategoryID__182C9B23" ManuallyRouted="false" />
+        <AssociationConnector Association="BajajEntityDataModel.FK__BykeImage__BykeI__267ABA7A" ManuallyRouted="false" />
+        <AssociationConnector Association="BajajEntityDataModel.FK__Finance_I__BykeI__33D4B598" ManuallyRouted="false" />
+        <AssociationConnector Association="BajajEntityDataModel.FK__Finance_I__Finan__35BCFE0A" ManuallyRouted="false" />
+        <AssociationConnector Association="BajajEntityDataModel.FK__Finance_I__Insua__34C8D9D1" ManuallyRouted="false" />
+        <AssociationConnector Association="BajajEntityDataModel.FK__FinanceCo__Insua__2F10007B" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

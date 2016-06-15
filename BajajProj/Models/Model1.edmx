@@ -1,0 +1,494 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="BajajEntityDataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Byke">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="CategoryID" Type="int" />
+          <Property Name="CylinderCapacity" Type="nvarchar" MaxLength="30" />
+          <Property Name="TopSpeed" Type="nvarchar" MaxLength="30" />
+          <Property Name="LogoURL" Type="nvarchar" MaxLength="128" />
+          <Property Name="Price" Type="int" />
+          <Property Name="Engine" Type="nvarchar" MaxLength="30" />
+          <Property Name="Type" Type="nvarchar" MaxLength="30" />
+          <Property Name="MaxPower" Type="nvarchar" MaxLength="30" />
+          <Property Name="MaxTorque" Type="nvarchar" MaxLength="30" />
+          <Property Name="StartAid" Type="nvarchar" MaxLength="30" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="BykeImages">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BykeID" Type="int" />
+          <Property Name="ImageType" Type="nvarchar" MaxLength="40" />
+          <Property Name="ImageURL" Type="nvarchar" MaxLength="128" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="Finance_Insuarance">
+          <Key>
+            <PropertyRef Name="BykeID" />
+            <PropertyRef Name="InsuaranceCompanyID" />
+            <PropertyRef Name="FinanceCompanyID" />
+          </Key>
+          <Property Name="BykeID" Type="int" Nullable="false" />
+          <Property Name="InsuaranceCompanyID" Type="int" Nullable="false" />
+          <Property Name="FinanceCompanyID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FinanceCompany">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="40" />
+          <Property Name="MinimumDownPaymentAmmount" Type="int" />
+          <Property Name="Interest" Type="int" />
+          <Property Name="AdditionalCharges" Type="int" />
+          <Property Name="InsuaranceCompanyID" Type="int" />
+          <Property Name="MaxLoanAmmount" Type="int" />
+          <Property Name="MaxDuration" Type="int" />
+          <Property Name="LogoURL" Type="nvarchar" MaxLength="128" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="InsuaranceCompany">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="40" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="40" />
+          <Property Name="Password" Type="nvarchar" MaxLength="128" />
+        </EntityType>
+        <Association Name="FK__Byke__CategoryID__182C9B23">
+          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="Byke" Type="Self.Byke" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Byke">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BykeImage__BykeI__267ABA7A">
+          <End Role="Byke" Type="Self.Byke" Multiplicity="0..1" />
+          <End Role="BykeImages" Type="Self.BykeImages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Byke">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BykeImages">
+              <PropertyRef Name="BykeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Finance_I__BykeI__33D4B598">
+          <End Role="Byke" Type="Self.Byke" Multiplicity="1" />
+          <End Role="Finance_Insuarance" Type="Self.Finance_Insuarance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Byke">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Finance_Insuarance">
+              <PropertyRef Name="BykeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Finance_I__Finan__35BCFE0A">
+          <End Role="FinanceCompany" Type="Self.FinanceCompany" Multiplicity="1" />
+          <End Role="Finance_Insuarance" Type="Self.Finance_Insuarance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FinanceCompany">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Finance_Insuarance">
+              <PropertyRef Name="FinanceCompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Finance_I__Insua__34C8D9D1">
+          <End Role="InsuaranceCompany" Type="Self.InsuaranceCompany" Multiplicity="1" />
+          <End Role="Finance_Insuarance" Type="Self.Finance_Insuarance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InsuaranceCompany">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Finance_Insuarance">
+              <PropertyRef Name="InsuaranceCompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FinanceCo__Insua__2F10007B">
+          <End Role="InsuaranceCompany" Type="Self.InsuaranceCompany" Multiplicity="0..1" />
+          <End Role="FinanceCompany" Type="Self.FinanceCompany" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InsuaranceCompany">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="FinanceCompany">
+              <PropertyRef Name="InsuaranceCompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BajajEntityDataModelStoreContainer">
+          <EntitySet Name="Byke" EntityType="Self.Byke" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BykeImages" EntityType="Self.BykeImages" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Finance_Insuarance" EntityType="Self.Finance_Insuarance" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FinanceCompany" EntityType="Self.FinanceCompany" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InsuaranceCompany" EntityType="Self.InsuaranceCompany" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Byke__CategoryID__182C9B23" Association="Self.FK__Byke__CategoryID__182C9B23">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Byke" EntitySet="Byke" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BykeImage__BykeI__267ABA7A" Association="Self.FK__BykeImage__BykeI__267ABA7A">
+            <End Role="Byke" EntitySet="Byke" />
+            <End Role="BykeImages" EntitySet="BykeImages" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Finance_I__BykeI__33D4B598" Association="Self.FK__Finance_I__BykeI__33D4B598">
+            <End Role="Byke" EntitySet="Byke" />
+            <End Role="Finance_Insuarance" EntitySet="Finance_Insuarance" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Finance_I__Finan__35BCFE0A" Association="Self.FK__Finance_I__Finan__35BCFE0A">
+            <End Role="FinanceCompany" EntitySet="FinanceCompany" />
+            <End Role="Finance_Insuarance" EntitySet="Finance_Insuarance" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Finance_I__Insua__34C8D9D1" Association="Self.FK__Finance_I__Insua__34C8D9D1">
+            <End Role="InsuaranceCompany" EntitySet="InsuaranceCompany" />
+            <End Role="Finance_Insuarance" EntitySet="Finance_Insuarance" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FinanceCo__Insua__2F10007B" Association="Self.FK__FinanceCo__Insua__2F10007B">
+            <End Role="InsuaranceCompany" EntitySet="InsuaranceCompany" />
+            <End Role="FinanceCompany" EntitySet="FinanceCompany" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BajajEntityDataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Byke">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CategoryID" Type="Int32" />
+          <Property Name="CylinderCapacity" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="TopSpeed" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="LogoURL" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Int32" />
+          <Property Name="Engine" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="MaxPower" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="MaxTorque" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="StartAid" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" />
+          <NavigationProperty Name="Category" Relationship="Self.FK__Byke__CategoryID__182C9B23" FromRole="Byke" ToRole="Category" />
+          <NavigationProperty Name="BykeImages" Relationship="Self.FK__BykeImage__BykeI__267ABA7A" FromRole="Byke" ToRole="BykeImages" />
+          <NavigationProperty Name="Finance_Insuarance" Relationship="Self.FK__Finance_I__BykeI__33D4B598" FromRole="Byke" ToRole="Finance_Insuarance" />
+        </EntityType>
+        <EntityType Name="BykeImage">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BykeID" Type="Int32" />
+          <Property Name="ImageType" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="ImageURL" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" />
+          <NavigationProperty Name="Byke" Relationship="Self.FK__BykeImage__BykeI__267ABA7A" FromRole="BykeImages" ToRole="Byke" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Bykes" Relationship="Self.FK__Byke__CategoryID__182C9B23" FromRole="Category" ToRole="Byke" />
+        </EntityType>
+        <EntityType Name="Finance_Insuarance">
+          <Key>
+            <PropertyRef Name="BykeID" />
+            <PropertyRef Name="InsuaranceCompanyID" />
+            <PropertyRef Name="FinanceCompanyID" />
+          </Key>
+          <Property Name="BykeID" Type="Int32" Nullable="false" />
+          <Property Name="InsuaranceCompanyID" Type="Int32" Nullable="false" />
+          <Property Name="FinanceCompanyID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Byke" Relationship="Self.FK__Finance_I__BykeI__33D4B598" FromRole="Finance_Insuarance" ToRole="Byke" />
+          <NavigationProperty Name="FinanceCompany" Relationship="Self.FK__Finance_I__Finan__35BCFE0A" FromRole="Finance_Insuarance" ToRole="FinanceCompany" />
+          <NavigationProperty Name="InsuaranceCompany" Relationship="Self.FK__Finance_I__Insua__34C8D9D1" FromRole="Finance_Insuarance" ToRole="InsuaranceCompany" />
+        </EntityType>
+        <EntityType Name="FinanceCompany">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="MinimumDownPaymentAmmount" Type="Int32" />
+          <Property Name="Interest" Type="Int32" />
+          <Property Name="AdditionalCharges" Type="Int32" />
+          <Property Name="InsuaranceCompanyID" Type="Int32" />
+          <Property Name="MaxLoanAmmount" Type="Int32" />
+          <Property Name="MaxDuration" Type="Int32" />
+          <Property Name="LogoURL" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" />
+          <NavigationProperty Name="Finance_Insuarance" Relationship="Self.FK__Finance_I__Finan__35BCFE0A" FromRole="FinanceCompany" ToRole="Finance_Insuarance" />
+          <NavigationProperty Name="InsuaranceCompany" Relationship="Self.FK__FinanceCo__Insua__2F10007B" FromRole="FinanceCompany" ToRole="InsuaranceCompany" />
+        </EntityType>
+        <EntityType Name="InsuaranceCompany">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Finance_Insuarance" Relationship="Self.FK__Finance_I__Insua__34C8D9D1" FromRole="InsuaranceCompany" ToRole="Finance_Insuarance" />
+          <NavigationProperty Name="FinanceCompanies" Relationship="Self.FK__FinanceCo__Insua__2F10007B" FromRole="InsuaranceCompany" ToRole="FinanceCompany" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK__Byke__CategoryID__182C9B23">
+          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="Byke" Type="Self.Byke" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Byke">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BykeImage__BykeI__267ABA7A">
+          <End Role="Byke" Type="Self.Byke" Multiplicity="0..1" />
+          <End Role="BykeImages" Type="Self.BykeImage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Byke">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BykeImages">
+              <PropertyRef Name="BykeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Finance_I__BykeI__33D4B598">
+          <End Role="Byke" Type="Self.Byke" Multiplicity="1" />
+          <End Role="Finance_Insuarance" Type="Self.Finance_Insuarance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Byke">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Finance_Insuarance">
+              <PropertyRef Name="BykeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Finance_I__Finan__35BCFE0A">
+          <End Role="FinanceCompany" Type="Self.FinanceCompany" Multiplicity="1" />
+          <End Role="Finance_Insuarance" Type="Self.Finance_Insuarance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FinanceCompany">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Finance_Insuarance">
+              <PropertyRef Name="FinanceCompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Finance_I__Insua__34C8D9D1">
+          <End Role="InsuaranceCompany" Type="Self.InsuaranceCompany" Multiplicity="1" />
+          <End Role="Finance_Insuarance" Type="Self.Finance_Insuarance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InsuaranceCompany">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Finance_Insuarance">
+              <PropertyRef Name="InsuaranceCompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FinanceCo__Insua__2F10007B">
+          <End Role="InsuaranceCompany" Type="Self.InsuaranceCompany" Multiplicity="0..1" />
+          <End Role="FinanceCompany" Type="Self.FinanceCompany" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InsuaranceCompany">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="FinanceCompany">
+              <PropertyRef Name="InsuaranceCompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BajajDBContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Bykes" EntityType="Self.Byke" />
+          <EntitySet Name="BykeImages" EntityType="Self.BykeImage" />
+          <EntitySet Name="Categories" EntityType="Self.Category" />
+          <EntitySet Name="Finance_Insuarance" EntityType="Self.Finance_Insuarance" />
+          <EntitySet Name="FinanceCompanies" EntityType="Self.FinanceCompany" />
+          <EntitySet Name="InsuaranceCompanies" EntityType="Self.InsuaranceCompany" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <AssociationSet Name="FK__Byke__CategoryID__182C9B23" Association="Self.FK__Byke__CategoryID__182C9B23">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="Byke" EntitySet="Bykes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BykeImage__BykeI__267ABA7A" Association="Self.FK__BykeImage__BykeI__267ABA7A">
+            <End Role="Byke" EntitySet="Bykes" />
+            <End Role="BykeImages" EntitySet="BykeImages" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Finance_I__BykeI__33D4B598" Association="Self.FK__Finance_I__BykeI__33D4B598">
+            <End Role="Byke" EntitySet="Bykes" />
+            <End Role="Finance_Insuarance" EntitySet="Finance_Insuarance" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Finance_I__Finan__35BCFE0A" Association="Self.FK__Finance_I__Finan__35BCFE0A">
+            <End Role="FinanceCompany" EntitySet="FinanceCompanies" />
+            <End Role="Finance_Insuarance" EntitySet="Finance_Insuarance" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Finance_I__Insua__34C8D9D1" Association="Self.FK__Finance_I__Insua__34C8D9D1">
+            <End Role="InsuaranceCompany" EntitySet="InsuaranceCompanies" />
+            <End Role="Finance_Insuarance" EntitySet="Finance_Insuarance" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FinanceCo__Insua__2F10007B" Association="Self.FK__FinanceCo__Insua__2F10007B">
+            <End Role="InsuaranceCompany" EntitySet="InsuaranceCompanies" />
+            <End Role="FinanceCompany" EntitySet="FinanceCompanies" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BajajEntityDataModelStoreContainer" CdmEntityContainer="BajajDBContext">
+          <EntitySetMapping Name="Bykes">
+            <EntityTypeMapping TypeName="BajajEntityDataModel.Byke">
+              <MappingFragment StoreEntitySet="Byke">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="CylinderCapacity" ColumnName="CylinderCapacity" />
+                <ScalarProperty Name="TopSpeed" ColumnName="TopSpeed" />
+                <ScalarProperty Name="LogoURL" ColumnName="LogoURL" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Engine" ColumnName="Engine" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="MaxPower" ColumnName="MaxPower" />
+                <ScalarProperty Name="MaxTorque" ColumnName="MaxTorque" />
+                <ScalarProperty Name="StartAid" ColumnName="StartAid" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BykeImages">
+            <EntityTypeMapping TypeName="BajajEntityDataModel.BykeImage">
+              <MappingFragment StoreEntitySet="BykeImages">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="BykeID" ColumnName="BykeID" />
+                <ScalarProperty Name="ImageType" ColumnName="ImageType" />
+                <ScalarProperty Name="ImageURL" ColumnName="ImageURL" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="BajajEntityDataModel.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Finance_Insuarance">
+            <EntityTypeMapping TypeName="BajajEntityDataModel.Finance_Insuarance">
+              <MappingFragment StoreEntitySet="Finance_Insuarance">
+                <ScalarProperty Name="BykeID" ColumnName="BykeID" />
+                <ScalarProperty Name="InsuaranceCompanyID" ColumnName="InsuaranceCompanyID" />
+                <ScalarProperty Name="FinanceCompanyID" ColumnName="FinanceCompanyID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FinanceCompanies">
+            <EntityTypeMapping TypeName="BajajEntityDataModel.FinanceCompany">
+              <MappingFragment StoreEntitySet="FinanceCompany">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="MinimumDownPaymentAmmount" ColumnName="MinimumDownPaymentAmmount" />
+                <ScalarProperty Name="Interest" ColumnName="Interest" />
+                <ScalarProperty Name="AdditionalCharges" ColumnName="AdditionalCharges" />
+                <ScalarProperty Name="InsuaranceCompanyID" ColumnName="InsuaranceCompanyID" />
+                <ScalarProperty Name="MaxLoanAmmount" ColumnName="MaxLoanAmmount" />
+                <ScalarProperty Name="MaxDuration" ColumnName="MaxDuration" />
+                <ScalarProperty Name="LogoURL" ColumnName="LogoURL" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InsuaranceCompanies">
+            <EntityTypeMapping TypeName="BajajEntityDataModel.InsuaranceCompany">
+              <MappingFragment StoreEntitySet="InsuaranceCompany">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="BajajEntityDataModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

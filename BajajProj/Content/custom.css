@@ -1,0 +1,28 @@
+﻿.single_item_img {
+    border: 1px solid #eee;
+    margin-top: 3%;
+}
+
+.single_item_description {
+    margin-top: 3%;
+    align-items: center;
+    max-width: 95%;
+    height: auto;
+}
+.single_item_description h5 {
+margin-bottom:10px;    
+    
+}
+
+.right_align {
+    text-align:end;
+}
+
+.highlight {
+    font-weight: bold;
+}
+
+.dropdown {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
